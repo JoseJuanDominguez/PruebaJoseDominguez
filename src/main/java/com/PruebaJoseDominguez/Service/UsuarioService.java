@@ -1,6 +1,6 @@
-package Service;
+package com.PruebaJoseDominguez.Service;
 
-import model.Usuario;
+import com.PruebaJoseDominguez.model.Usuario;
 
 import java.util.List;
 

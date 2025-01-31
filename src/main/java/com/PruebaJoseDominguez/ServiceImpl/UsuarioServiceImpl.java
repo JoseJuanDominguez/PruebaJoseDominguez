@@ -1,12 +1,13 @@
-package ServiceImpl;
+package com.PruebaJoseDominguez.ServiceImpl;
 
-import Service.UsuarioService;
-import model.Usuario;
+import com.PruebaJoseDominguez.Service.UsuarioService;
+import com.PruebaJoseDominguez.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import repository.UsuarioRepository;
+import com.PruebaJoseDominguez.repository.UsuarioRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service("UsuarioService")
 public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;

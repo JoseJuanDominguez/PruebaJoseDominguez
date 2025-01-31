@@ -1,9 +1,9 @@
-package dto;
+package com.PruebaJoseDominguez.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import model.Usuario;
+import com.PruebaJoseDominguez.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,6 @@ public class UsuarioDto {
     private String correo;
     @JsonProperty("edad")
     private int edad;
-    @JsonProperty("activo")
-    private boolean activo;
 
     public int getId() {
         return id;
@@ -54,14 +52,6 @@ public class UsuarioDto {
         this.edad = edad;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
     public static UsuarioDto getInstance(Usuario usr) {
         UsuarioDto usrDto = new UsuarioDto();
         if(usr!=null) {
@@ -69,7 +59,6 @@ public class UsuarioDto {
             usrDto.setCorreo(usr.getCorreo());
             usrDto.setNombre(usr.getNombre());
             usrDto.setEdad(usr.getEdad());
-
         }
         return usrDto;
 

@@ -1,9 +1,8 @@
-package Controller;
+package com.PruebaJoseDominguez.Controller;
 
-import Service.UsuarioService;
-import ServiceImpl.UsuarioServiceImpl;
-import dto.UsuarioDto;
-import model.Usuario;
+import com.PruebaJoseDominguez.ServiceImpl.UsuarioServiceImpl;
+import com.PruebaJoseDominguez.dto.UsuarioDto;
+import com.PruebaJoseDominguez.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -21,19 +20,19 @@ public class UsuarioController {
     public ResponseEntity<List<UsuarioDto>>findAll(){
         List<Usuario> allUsuarios = usuarioServiceImpl.findAll();
         if(allUsuarios.isEmpty()) {
-            return new ResponseEntity<List<UsuarioDto>>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<UsuarioDto>>(HttpStatus.OK);
         }
         List<UsuarioDto> usuariosDto = UsuarioDto.getInstance(allUsuarios);
         return new ResponseEntity<List<UsuarioDto>>(usuariosDto, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(value="/nuevoUsuario", method = RequestMethod.POST)
     public ResponseEntity<UsuarioDto>registroUsuario(@RequestBody UsuarioDto miDto){
         Usuario usuario = new Usuario();
         usuario.setNombre(miDto.getNombre());
         usuario.setCorreo(miDto.getCorreo());
         usuario.setEdad(miDto.getEdad());
-        usuario.setActivo(false);
         Usuario nuevoUsuario = usuarioServiceImpl.registrarUsuario(usuario);
 
         if(nuevoUsuario == null) {

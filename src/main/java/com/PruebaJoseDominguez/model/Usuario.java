@@ -1,4 +1,4 @@
-package model;
+package com.PruebaJoseDominguez.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,7 +12,6 @@ public class Usuario {
     private Integer id;
     private String nombre;
     private String correo;
-    private boolean activo;
     private Integer edad;
 
     public Integer getId() {
@@ -37,19 +36,9 @@ public class Usuario {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
     public Integer getEdad() {
         return edad;
     }
-
     public void setEdad(Integer edad) {
         this.edad = edad;
     }
